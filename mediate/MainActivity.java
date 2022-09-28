@@ -150,12 +150,18 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint({"ResourceType", "SetTextI18n"})
     public void onStopAction(View view) {
+        try{
         countDownTimer.cancel();
         tvShowTime.setText("00:00:00");
         etSetTime.setText("");
         mpNight1.stop();
         Glide.with(getApplicationContext()).load(R.layout.activity_main).into(imgView).onStop();
         Toast.makeText(MainActivity.this, "Finish", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        
+            
     }
 }
 
